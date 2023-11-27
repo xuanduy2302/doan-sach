@@ -1,10 +1,8 @@
 package NhanVien;
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.BufferedReader;
-import java.io.FileReader;
+
 import java.util.ArrayList;
 import java.util.Scanner;
+import Menu_abstract.Menu;
 
 class DSNhanVien extends Menu{
 	public static ArrayList<NhanVien> DSNhanVien;
@@ -55,7 +53,6 @@ class DSNhanVien extends Menu{
         for (NhanVien NhanVien : DSNhanVien){
             if (NhanVien.manv.equals(MaNVSua)){
                 found = true;
-                Scanner sc=new Scanner(System.in);
 				int sua;
 				System.out.println("Chon muc can sua: \n1.Ma nhan vien. \n2.Ten nhan vien. \n3.Ngay sinh nhan vien. \n4.SDT nhan vien. \n5.Dia chi. ");
 				sua=sc.nextInt();

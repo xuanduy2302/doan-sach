@@ -9,7 +9,6 @@ class BaoVe extends NhanVien{
 		catruc="";
 	}
 	public void nhap() {
-		Scanner sc = new Scanner(System.in);
 		super.nhap();
 		System.out.println("Ca truc: ");
 		catruc=sc.nextLine();

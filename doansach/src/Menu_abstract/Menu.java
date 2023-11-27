@@ -1,3 +1,5 @@
+package Menu_abstract;
+
 public abstract class Menu {
     public abstract void them();
     public abstract void xoa();

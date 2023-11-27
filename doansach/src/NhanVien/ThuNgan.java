@@ -9,7 +9,6 @@ public class ThuNgan extends NhanVien{
 		ngaybanhang="";
 	}
 	public void nhap() {
-		Scanner sc = new Scanner(System.in);
 		super.nhap();
 		System.out.println("Ngay ban hang: ");
 		ngaybanhang=sc.nextLine();

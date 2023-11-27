@@ -10,7 +10,6 @@ public class Kho extends NhanVien{
 	}
 
 	public void nhap() {
-		Scanner sc = new Scanner(System.in);
 		super.nhap();
 		System.out.println("Ngay kiem kho: ");
 		ngaykiemkho=sc.nextLine();

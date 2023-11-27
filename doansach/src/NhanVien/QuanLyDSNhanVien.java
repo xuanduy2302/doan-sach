@@ -1,9 +1,9 @@
 package NhanVien;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 
@@ -14,7 +14,6 @@ class QuanLyDSNhanVien {
     }
     void Menu(){
         int lua_chon;
-       Scanner sc=new Scanner(System.in);
        	boolean flag=true;
         while(flag){
             System.out.println(" 1/Them nhan vien.\n 2/Xoa nhan vien.\n 3/Sua nhan vien.\n 4/Xuat danh sach nhan vien.\n 5/Tim kiem nhan vien.\n 6.Thoat.");

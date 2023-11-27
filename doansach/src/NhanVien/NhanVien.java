@@ -1,6 +1,11 @@
 package NhanVien;
+
 import java.util.Scanner;
+import Menu_interface.INhap_IXuat;
+
 public class NhanVien implements INhap_IXuat{
+	Scanner sc=new Scanner(System.in);
+
 	String manv;
 	String tennv;
 	String ngaysinhnv;
@@ -15,7 +20,6 @@ public class NhanVien implements INhap_IXuat{
 		diachinv="";
 	}
 	public void nhap() {
-		Scanner sc = new Scanner(System.in);
         System.out.println("Nhap thong tin nhan vien: ");
         System.out.print("Ma nhan vien: "); manv=sc.nextLine();
         System.out.print("Ten nhan vien: "); tennv=sc.nextLine();
