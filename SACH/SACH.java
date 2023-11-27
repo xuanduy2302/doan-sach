@@ -1,12 +1,8 @@
-package SACH;
-
 import java.util.Scanner;
 
-public class SACH implements INhap,IXuat{
-
+public class SACH{
     Scanner sc = new Scanner(System.in);
-
-
+    
     public String MaSach;
     public String TenSach;
     public String NXB;
@@ -14,29 +10,28 @@ public class SACH implements INhap,IXuat{
     public int SoTrang;
     public int SoLuong;
     public int GiaTien;
-    private static int KhoSach;
 
-    
+    private static int KhoSach;
+    public static int getKhoSach(){
+        return KhoSach;
+    }
+    public static void updateKhoSach(int n){//n la so luong sach muon them hoac giam 
+        KhoSach+=n;
+    }
     public SACH(){
         MaSach=NXB=TacGia="";
         SoLuong=SoTrang=GiaTien=0;
     }
-    public SACH(SACH sach){
-        MaSach = sach.MaSach;
-        TenSach = sach.TenSach;
-        NXB = sach.NXB;
-        TacGia = sach.TacGia;
-        SoTrang = sach.SoTrang;
-        SoLuong = sach.SoLuong; 
+    public SACH(String MaSach,String TenSach,String NXB,String TacGia,int SoTrang,int SoLuong,int GiaTien){
+        MaSach = this.MaSach;
+        TenSach = this.TenSach;
+        NXB = this.NXB;
+        TacGia = this.TacGia;
+        SoTrang = this.SoTrang;
+        SoLuong = this.SoLuong; 
         KhoSach+=SoLuong;
-        GiaTien = sach.GiaTien;
+        GiaTien = this.GiaTien;
     }
-    
-    
-    public static void updateKhoSach(int n){
-        KhoSach+=n;
-    }
-    
     public void xuat(){
         System.out.print("Ma sach: "+MaSach+", Ten sach: "+TenSach+", Nha xuat ban: "+NXB+", Tac gia: "+TacGia+", So Trang: "+SoTrang+", So luong:"+SoLuong+", Gia Tien: "+GiaTien);
     }
@@ -52,9 +47,9 @@ public class SACH implements INhap,IXuat{
         System.out.print("Gia tien: "); GiaTien=sc.nextInt();
     }
 
-
-    public static int getKhoSach(){
-        return KhoSach;
+    @Override
+    public String toString() {
+        return MaSach + "|" + TenSach + "|" + NXB+ "|" + TacGia + "|" + SoTrang+ "|" + SoLuong + "|" + GiaTien;
     }
 }
 

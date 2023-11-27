@@ -1,12 +1,8 @@
-package SACH;
-
 import java.util.Scanner;
 
 public class QuanLyDSSach{
-
+    public DSSach dsSach = new DSSach();
     Scanner sc=new Scanner(System.in);
-    
-    public DSSach dsSach = new DSSach();  
 
     public void Menu(){
         int lua_chon=0;

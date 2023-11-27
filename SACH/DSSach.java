@@ -1,14 +1,16 @@
-package SACH;
-
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-
- public class DSSach extends MENU{
+public class DSSach{
+    public static ArrayList <SACH> DanhSachSach;
     Scanner sc = new Scanner(System.in); 
-    
-    public ArrayList <SACH> DanhSachSach;
-    
+
     public DSSach(){
         DanhSachSach = new ArrayList<SACH>(0);
     }
@@ -17,6 +19,7 @@ import java.util.Scanner;
         SACH sachmoi = new SACH();
         sachmoi.nhap();
         DanhSachSach.add(sachmoi);
+        themsach(sachmoi.toString());
         SACH.updateKhoSach(sachmoi.SoLuong);
     }
     public void xoa(){
@@ -111,5 +114,45 @@ import java.util.Scanner;
         }
         if (!found)
             System.out.println("Khong tim thay sach !");
+    }
+
+    public static void doc(){
+
+        try {
+            FileReader fileReader = new FileReader("danh_sach_sach.txt");
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
+
+            String line;
+            while ((line = bufferedReader.readLine()) != null) {
+
+                SACH sach = createSachFromLine(line);
+                DanhSachSach.add(sach);
+            }
+
+            bufferedReader.close();
+        } catch (IOException e) {
+            System.out.println("loi tep");
+        }
+    }
+
+    private static SACH createSachFromLine(String line) {
+        String[] parts = line.split("\\|");
+        SACH sach = new SACH(parts[0],parts[1],parts[2],parts[3],Integer.parseInt(parts[4]),Integer.parseInt(parts[5]),Integer.parseInt(parts[6]));
+        return sach;
+    }
+    private static void themsach(String line) {
+        try {
+            File file = new File("danh_sach_sach.txt");
+            boolean append = file.exists(); 
+
+            FileWriter fileWriter = new FileWriter(file, append); 
+            BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+            bufferedWriter.write(line);
+            bufferedWriter.newLine();
+            bufferedWriter.close();
+
+        } catch (IOException e) {
+
+        }
     }
 }
