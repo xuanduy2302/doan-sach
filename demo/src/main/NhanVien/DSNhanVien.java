@@ -6,6 +6,7 @@ import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import abstract.Menu;
 
 class DSNhanVien extends Menu{
 	public static ArrayList<NhanVien> DSNhanVien;
