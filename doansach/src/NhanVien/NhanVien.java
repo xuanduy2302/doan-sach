@@ -1,9 +1,11 @@
 package NhanVien;
 
 import java.util.Scanner;
-import Menu_interface.INhap_IXuat;
+import Menu_interface.iNhap;
+import Menu_interface.iXuat;
 
-public class NhanVien implements INhap_IXuat{
+
+public class NhanVien implements iNhap,iXuat{
 	Scanner sc=new Scanner(System.in);
 
 	String manv;
