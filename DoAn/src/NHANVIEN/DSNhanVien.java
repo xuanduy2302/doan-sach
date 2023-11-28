@@ -188,7 +188,7 @@ public class DSNhanVien extends MENU{
                     DanhSachNhanVien.add(nv);
                 }            
             }   
-            System.out.println("Doc file thanh cong!");
+            // System.out.println("Doc file thanh cong!");
         
         } catch (Exception e) {
             e.printStackTrace();

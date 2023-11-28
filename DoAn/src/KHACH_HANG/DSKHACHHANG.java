@@ -247,7 +247,7 @@ public class DSKHACHHANG extends MENU{
 
                 line = input.readLine();
             }
-            System.out.println("Data loaded from file.");
+            // System.out.println("Data loaded from file.");
         } catch (IOException e) {
             e.printStackTrace();
         }

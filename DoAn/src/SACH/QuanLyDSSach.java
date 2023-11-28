@@ -24,13 +24,14 @@ public class QuanLyDSSach{
                     dsSach.sua();
                     break;
                 case 4:
-                    dsSach.xuat();
+                    dsSach.danhsach();
                     break;
                 case 5:
                     dsSach.timkiem();
                     break;
                 case 6:
                     System.out.println("So luong sach co trong kho: "+SACH.getKhoSach());
+                    break;
                 case 7:
                     flag = false;
                     break;
