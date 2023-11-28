@@ -1,3 +1,4 @@
+package KHACH_HANG;
 import java.util.Scanner;
 import abstr_interf.*;
 class KHACHHANG implements INhap,IXuat{

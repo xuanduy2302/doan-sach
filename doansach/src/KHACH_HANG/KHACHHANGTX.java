@@ -1,3 +1,4 @@
+package KHACH_HANG;
 import java.util.Scanner;
 
 class KHACHHANGTX extends KHACHHANG{//kế thừa

@@ -3,7 +3,7 @@ package HOADON;
 import java.util.ArrayList;
 
 public class CHITIETHOADON {
-    String MaDonHang;
+
     String MaNV;
     String TenNV;
     String TenKH;
@@ -14,7 +14,7 @@ public class CHITIETHOADON {
     ArrayList <Integer> DonGiaMoiSP;
 
     CHITIETHOADON(){
-        TenKH=MaKH=TenNV=MaNV=MaDonHang="";
+        TenKH=MaKH=TenNV=MaNV="";
         SoLuongMoiSP = new ArrayList<Integer>(0);
         DanhSachSanPham = new ArrayList <String>(0);
         DanhSachMaSanPham = new ArrayList <String>(0);

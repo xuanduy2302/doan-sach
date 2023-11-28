@@ -22,8 +22,6 @@ public class HOADON implements IXuat{
         return TongTien;
     }
     public void xuat(){
-        if (!ChiTietHoaDon.MaDonHang.isEmpty())
-            System.out.println("Ma don hang: "+ChiTietHoaDon.MaDonHang);
         System.out.println("Ma hoa don: "+MaHoaDon);
         System.out.println("Nhan vien: "+ChiTietHoaDon.MaNV+" - "+ChiTietHoaDon.TenNV);
         System.out.println("Khach hang: "+ChiTietHoaDon.MaKH+" - "+ChiTietHoaDon.TenKH);

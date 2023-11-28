@@ -1,5 +1,9 @@
 package NHANVIEN;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
 import abstr_interf.*;
@@ -106,4 +110,89 @@ public class DSNhanVien extends MENU{
         if (!found)
             System.out.println("Khong tim thay nhan vien !");
     }
+    public static void WriteFile() {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("datanhanvien.txt"))) {
+            for (NHANVIEN x : DanhSachNhanVien) {
+                writer.write(x.manv + ",");
+                writer.write(x.tennv + ",");
+                writer.write(x.ngaysinhnv + ",");
+                writer.write(x.sdtnv + ",");
+                writer.write(x.diachinv + ",");
+                writer.write(x.luong + ",");
+                if(x instanceof THUNGAN) {
+                	writer.write("1,");
+                	writer.write( ((THUNGAN)x).ngaybanhang + ",");
+                }
+                if(x instanceof KHO) {
+                	writer.write("2,");
+                	writer.write( ((KHO)x).ngaykiemkho + ",");
+                }
+                if(x instanceof BAOVE) {
+                	writer.write("3,");
+                	writer.write( ((BAOVE)x).catruc + ",");
+                }
+                writer.newLine(); // Xuống dòng cho mỗi nhân viên
+                
+            }
+            System.out.println("Ghi file thanh cong!");
+     
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    public static void ReadFile() {
+        try (BufferedReader reader = new BufferedReader(new FileReader("datanhanvien.txt"))) {
+        	String line;
+            while ((line = reader.readLine()) != null) {
+                String[] parts = line.split(",");
+                String maNV = parts[0];
+                String tenNV = parts[1];
+                String ngaySinhNV = parts[2];
+                String sdtNV = parts[3];
+                String diaChiNV = parts[4];
+                String luongNV = parts[5];
+                String currentRole = parts[6];
+                NHANVIEN nv ;
+                if (currentRole.equals("1")) {
+                	nv = new THUNGAN();
+                    ((THUNGAN)nv).ngaybanhang = parts[7];
+                    nv.manv = maNV;
+                    nv.tennv = tenNV;
+                    nv.ngaysinhnv = ngaySinhNV;
+                    nv.sdtnv = sdtNV;
+                    nv.diachinv = diaChiNV;
+                    nv.luong = luongNV;
+                   
+                    DanhSachNhanVien.add(nv);
+                } else if (currentRole.equals("2")) {
+                    nv = new KHO();
+                    ((KHO)nv).ngaykiemkho = parts[7]; 
+                    nv.manv = maNV;
+                    nv.tennv = tenNV;
+                    nv.ngaysinhnv = ngaySinhNV;
+                    nv.sdtnv = sdtNV;
+                    nv.diachinv = diaChiNV;
+                    nv.luong = luongNV;
+                   
+                    DanhSachNhanVien.add(nv);
+                } else if (currentRole.equals("3")) {
+                    nv = new BAOVE();
+                    ((BAOVE)nv).catruc = parts[7];
+                    nv.manv = maNV;
+                    nv.tennv = tenNV;
+                    nv.ngaysinhnv = ngaySinhNV;
+                    nv.sdtnv = sdtNV;
+                    nv.diachinv = diaChiNV;
+                    nv.luong = luongNV;
+                   
+                    DanhSachNhanVien.add(nv);
+                }            
+            }   
+            System.out.println("Doc file thanh cong!");
+        
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
+

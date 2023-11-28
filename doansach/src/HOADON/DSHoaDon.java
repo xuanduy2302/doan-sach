@@ -155,7 +155,7 @@ public class DSHoaDon {
         System.out.println("\n***Danh sach co "+DanhSachHoaDon.size()+" hoa don");
         System.out.println("***Tong doanh thu: "+tong+"\n");
     }
-    public void WriteFile() {
+    public static void WriteFile() {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter("datahoadon.txt"))) {
             for (HOADON hoadon : DanhSachHoaDon) {
                 writer.write(hoadon.MaHoaDon+",");
@@ -167,16 +167,16 @@ public class DSHoaDon {
                 int i=1;
                 for (String masach : hoadon.ChiTietHoaDon.DanhSachMaSanPham) {
                     if (hoadon.ChiTietHoaDon.getSL()!=i)
-                        writer.write(hoadon.ChiTietHoaDon.DanhSachMaSanPham.get(i-1)+",");
-                    else writer.write(hoadon.ChiTietHoaDon.DanhSachMaSanPham.get(i-1)+"\n"); 
+                        writer.write(masach+",");
+                    else writer.write(masach+"\n"); 
                     i++;
                 }
                 i=1;
                 for (String tensach : hoadon.ChiTietHoaDon.DanhSachMaSanPham) {
                     if (hoadon.ChiTietHoaDon.getSL()!=i)
-                        writer.write(hoadon.ChiTietHoaDon.DanhSachSanPham.get(i-1)+",");
-                    else writer.write(hoadon.ChiTietHoaDon.DanhSachSanPham.get(i-1)+"\n"); 
-                    i++;
+                        writer.write(tensach+",");
+                    else writer.write(tensach+"\n"); 
+                    
                 }
                 i=1;
                 for (Integer soluong : hoadon.ChiTietHoaDon.SoLuongMoiSP) {
@@ -186,17 +186,15 @@ public class DSHoaDon {
                     else writer.write(num+"\n");
                     i++;
                 }
-                if (!hoadon.ChiTietHoaDon.MaDonHang.isEmpty())
-                    writer.write("Ma don hang: "+hoadon.ChiTietHoaDon.MaDonHang);
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-    public void ReadFile(){
+    public static void ReadFile(){
         try (BufferedReader reader = new BufferedReader(new FileReader("datahoadon.txt"))) {
             String buff;
-            String line1[],line2[],line3[];
+            String line1[],line2[],line3[],line4[];
             while ((buff = reader.readLine()) != null){
                 HOADON hoadon = new HOADON();
 
@@ -214,12 +212,17 @@ public class DSHoaDon {
                     hoadon.ChiTietHoaDon.DanhSachMaSanPham.add(masach);
                 }
             
-
                 buff = reader.readLine();
                 line3 = buff.split(",");
-                for (String soluong : line3){
+                for (String tensach : line3) {
+                    hoadon.ChiTietHoaDon.DanhSachSanPham.add(tensach);
+                }
+
+                buff = reader.readLine();
+                line4 = buff.split(",");
+                for (String soluong : line4){
                     int num = Integer.parseInt(soluong);
-                    hoadon.SoLuongMoiSP.add(num);
+                    hoadon.ChiTietHoaDon.SoLuongMoiSP.add(num);
                 }
 
                 DanhSachHoaDon.add(hoadon);

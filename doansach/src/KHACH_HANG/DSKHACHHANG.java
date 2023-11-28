@@ -1,3 +1,4 @@
+package KHACH_HANG;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -5,7 +6,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 import abstr_interf.*;
-    class DSKHACHHANG extends MENU{
+public class DSKHACHHANG extends MENU{
     public static ArrayList<KHACHHANG> DSKH;//danh sách mảng
     public DSKHACHHANG(){//khởi tạo
         DSKH= new ArrayList<KHACHHANG>();

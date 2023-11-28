@@ -9,7 +9,7 @@ import NHANVIEN.*;
 public class QuanLyDSHoaDon{
     public DSHoaDon dsHoaDon;
 
-    public QuanLyDSHoaDon (ArrayList<SACH> dsSach,ArrayList<NHANVIEN> dsNhanVien){
+    public QuanLyDSHoaDon (){
         dsHoaDon = new DSHoaDon();
     }
     public void Menu(){
