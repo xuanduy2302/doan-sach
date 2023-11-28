@@ -9,6 +9,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import abstr_interf.MENU;
@@ -22,11 +23,27 @@ public class DSSach  extends MENU{
     }
 
     public void them(){
-        SACH sachmoi = new SACH();
-        sachmoi.nhap();
-        DanhSachSach.add(sachmoi);
-        themsach(sachmoi.toString());
-        SACH.updateKhoSach(sachmoi.SoLuong);
+        boolean inputValid = false;
+
+        while (!inputValid) {
+            try {
+                SACH sachmoi = new SACH();
+                sachmoi.nhap();
+                DanhSachSach.add(sachmoi);
+                themsach(sachmoi.toString());
+                SACH.updateKhoSach(sachmoi.SoLuong);
+                
+                // Nếu không có ngoại lệ xảy ra, đánh dấu là dữ liệu hợp lệ và thoát khỏi vòng lặp
+                inputValid = true;
+            } catch (InputMismatchException ex) {
+                System.out.println("Nhap Sai Du Lieu");
+                // Bỏ qua dữ liệu hiện tại và yêu cầu người dùng nhập lại
+            } catch (Exception e) {
+                System.out.println("Da Xay Ra Loi " + e.getMessage());
+                e.printStackTrace();
+                // Xử lý ngoại lệ khác nếu cần thiết
+            }
+        }
     }
     public void xoa(){
         String MaSachXoa;
