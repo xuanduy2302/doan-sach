@@ -18,12 +18,11 @@ public class DSHoaDon {
     public DSHoaDon (){
         DanhSachHoaDon = new ArrayList<HOADON>(0);
     }
-
+     Scanner sc = new Scanner(System.in);
     public void them(){
         boolean nhaplai=false;
         HOADON HoaDonMoi = new HOADON();
         do{
-            Scanner sc = new Scanner(System.in);
             System.out.print("Nhap ma hoa don: ");
             HoaDonMoi.MaHoaDon=sc.nextLine();
             while (HoaDonMoi.ChiTietHoaDon.TenNV.isEmpty()){
