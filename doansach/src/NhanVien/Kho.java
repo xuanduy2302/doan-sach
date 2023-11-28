@@ -1,11 +1,11 @@
-package NhanVien;
+package NHANVIEN;
 
 import java.util.Scanner;
 
-public class Kho extends NhanVien{
+public class KHO extends NHANVIEN{
 	Scanner sc=new Scanner(System.in);
 	String ngaykiemkho;
-	public Kho() {
+	public KHO() {
 		ngaykiemkho="";
 	}
 

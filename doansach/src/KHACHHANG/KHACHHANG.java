@@ -1,6 +1,6 @@
 import java.util.Scanner;
-
-class KHACHHANG implements iNhap,iXuat{
+import abstr_interf.*;
+class KHACHHANG implements INhap,IXuat{
     protected String Id;
     protected String Name;
     protected String Address;

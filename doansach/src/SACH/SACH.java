@@ -2,7 +2,9 @@ package SACH;
 
 import java.util.Scanner;
 
-public class SACH{
+import abstr_interf.*;
+
+public class SACH implements INhap,IXuat{
     Scanner sc = new Scanner(System.in);
     
     public String MaSach;

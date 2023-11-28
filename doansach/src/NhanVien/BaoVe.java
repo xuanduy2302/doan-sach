@@ -1,11 +1,11 @@
-package NhanVien;
+package NHANVIEN;
 
 import java.util.Scanner;
 
-class BaoVe extends NhanVien{
+class BAOVE extends NHANVIEN{
 	Scanner sc=new Scanner(System.in);
 	String catruc;
-	public BaoVe() {
+	public BAOVE() {
 		catruc="";
 	}
 	public void nhap() {

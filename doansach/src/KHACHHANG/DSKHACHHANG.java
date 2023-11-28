@@ -4,9 +4,9 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
-
-    class DSKHACHHANG {//implement interface
-    private static ArrayList<KHACHHANG> DSKH;//danh sách mảng
+import abstr_interf.*;
+    class DSKHACHHANG extends MENU{
+    public static ArrayList<KHACHHANG> DSKH;//danh sách mảng
     public DSKHACHHANG(){//khởi tạo
         DSKH= new ArrayList<KHACHHANG>();
     }
@@ -45,7 +45,7 @@ import java.util.Scanner;
         }
     }
 
-    public void chinhsua(){//chỉnh sửa theo thong tin
+    public void sua(){//chỉnh sửa theo thong tin
         int choose=0;//chú ý khởi tạo trước khi sử dụng để check ở dưới
         String S_MA;
         System.out.println("\nNhap Ma Khach Hang can sua");
@@ -198,7 +198,7 @@ import java.util.Scanner;
                System.out.println("KHONG tim thay!!");
     }
 
-    public void xuat() {//xuất danh sách lưu trong list
+    public void danhsach() {//xuất danh sách lưu trong list
         for(KHACHHANG x : DSKH){
             x.xuat();
         }

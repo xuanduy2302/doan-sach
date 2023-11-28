@@ -1,4 +1,4 @@
-package NhanVien;
+package NHANVIEN;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -43,24 +43,24 @@ class QuanLyDSNhanVien {
     Scanner sc=new Scanner(System.in);
     public void WriteFile() {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter("datanhanvien.txt"))) {
-            for (NhanVien x : DSNhanVien.DSNhanVien) {
+            for (NHANVIEN x : DSNhanVien.DanhSachNhanVien) {
                 writer.write(x.manv + ",");
                 writer.write(x.tennv + ",");
                 writer.write(x.ngaysinhnv + ",");
                 writer.write(x.sdtnv + ",");
                 writer.write(x.diachinv + ",");
                 writer.write(x.luong + ",");
-                if(x instanceof ThuNgan) {
+                if(x instanceof THUNGAN) {
                 	writer.write("1,");
-                	writer.write( ((ThuNgan)x).ngaybanhang + ",");
+                	writer.write( ((THUNGAN)x).ngaybanhang + ",");
                 }
-                if(x instanceof Kho) {
+                if(x instanceof KHO) {
                 	writer.write("2,");
-                	writer.write( ((Kho)x).ngaykiemkho + ",");
+                	writer.write( ((KHO)x).ngaykiemkho + ",");
                 }
-                if(x instanceof BaoVe) {
+                if(x instanceof BAOVE) {
                 	writer.write("3,");
-                	writer.write( ((BaoVe)x).catruc + ",");
+                	writer.write( ((BAOVE)x).catruc + ",");
                 }
                 writer.newLine(); // Xuống dòng cho mỗi nhân viên
                 
@@ -83,10 +83,10 @@ class QuanLyDSNhanVien {
                 String diaChiNV = parts[4];
                 String luongNV = parts[5];
                 String currentRole = parts[6];
-                NhanVien nv ;
+                NHANVIEN nv ;
                 if (currentRole.equals("1")) {
-                	nv = new ThuNgan();
-                    ((ThuNgan)nv).ngaybanhang = parts[7];
+                	nv = new THUNGAN();
+                    ((THUNGAN)nv).ngaybanhang = parts[7];
                     nv.manv = maNV;
                     nv.tennv = tenNV;
                     nv.ngaysinhnv = ngaySinhNV;
@@ -94,10 +94,10 @@ class QuanLyDSNhanVien {
                     nv.diachinv = diaChiNV;
                     nv.luong = luongNV;
                    
-                    DSNhanVien.DSNhanVien.add(nv);
+                    DSNhanVien.DanhSachNhanVien.add(nv);
                 } else if (currentRole.equals("2")) {
-                    nv = new Kho();
-                    ((Kho)nv).ngaykiemkho = parts[7]; 
+                    nv = new KHO();
+                    ((KHO)nv).ngaykiemkho = parts[7]; 
                     nv.manv = maNV;
                     nv.tennv = tenNV;
                     nv.ngaysinhnv = ngaySinhNV;
@@ -105,10 +105,10 @@ class QuanLyDSNhanVien {
                     nv.diachinv = diaChiNV;
                     nv.luong = luongNV;
                    
-                    DSNhanVien.DSNhanVien.add(nv);
+                    DSNhanVien.DanhSachNhanVien.add(nv);
                 } else if (currentRole.equals("3")) {
-                    nv = new BaoVe();
-                    ((BaoVe)nv).catruc = parts[7];
+                    nv = new BAOVE();
+                    ((BAOVE)nv).catruc = parts[7];
                     nv.manv = maNV;
                     nv.tennv = tenNV;
                     nv.ngaysinhnv = ngaySinhNV;
@@ -116,7 +116,7 @@ class QuanLyDSNhanVien {
                     nv.diachinv = diaChiNV;
                     nv.luong = luongNV;
                    
-                    DSNhanVien.DSNhanVien.add(nv);
+                    DSNhanVien.DanhSachNhanVien.add(nv);
                 }            
             }   
             System.out.println("Doc file thanh cong!");

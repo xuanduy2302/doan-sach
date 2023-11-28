@@ -1,20 +1,19 @@
-package NhanVien;
+package NHANVIEN;
 
 import java.util.Scanner;
-import Menu_interface.iNhap;
-import Menu_interface.iXuat;
+import abstr_interf.*;
 
 
-public class NhanVien implements iNhap,iXuat{
+public class NHANVIEN implements INhap,IXuat{
 	Scanner sc=new Scanner(System.in);
 
-	String manv;
-	String tennv;
-	String ngaysinhnv;
-	String sdtnv;
-	String diachinv;
-	String luong;
-	public NhanVien() {
+	public String manv;
+	public String tennv;
+	public String ngaysinhnv;
+	public String sdtnv;
+	public String diachinv;
+	public String luong;
+	public NHANVIEN() {
 		manv="";
 		tennv="";
 		ngaysinhnv="";

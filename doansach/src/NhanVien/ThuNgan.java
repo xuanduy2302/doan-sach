@@ -1,11 +1,11 @@
-package NhanVien;
+package NHANVIEN;
 
 import java.util.Scanner;
 
-public class ThuNgan extends NhanVien{
+public class THUNGAN extends NHANVIEN{
 	Scanner sc=new Scanner(System.in);
 	String ngaybanhang;
-	public ThuNgan() {
+	public THUNGAN() {
 		ngaybanhang="";
 	}
 	public void nhap() {

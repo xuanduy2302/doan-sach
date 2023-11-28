@@ -1,6 +1,6 @@
-package Menu_abstract;
+package abstr_interf;
 
-public abstract class Menu {
+public abstract class MENU {
     public abstract void them();
     public abstract void xoa();
     public abstract void sua();
