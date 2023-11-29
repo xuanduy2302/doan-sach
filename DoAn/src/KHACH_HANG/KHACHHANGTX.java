@@ -19,10 +19,10 @@ class KHACHHANGTX extends KHACHHANG{//kế thừa
                    if(diemtichluy>0)
                         flag=false;
                     else
-                        System.out.println("vui long nhap diem tich luy > 0");
+                        System.out.println("~ Vui long nhap diem tich luy > 0 ~");
                     }
                 else{
-                    System.out.println("vui long nhap so nguyen");
+                    System.out.println("~ Vui long nhap so nguyen ~");
                     sc.next();
                 }
             }
@@ -34,11 +34,10 @@ class KHACHHANGTX extends KHACHHANG{//kế thừa
             System.out.println("DIEM TICH LUY: " + diemtichluy);
             System.out.println("-----------------------------------------------------------------");
         }
-        
         public int getDiemtichluy(){
             return diemtichluy;
         }
-        public void setDiemtichluy(int diemtichluy){//tăng điểm tích lũy khi mua hàng
+        public void setDiemtichluy(int diemtichluy){
             this.diemtichluy=diemtichluy;
         }
     }
