@@ -1,9 +1,9 @@
 import java.util.Scanner;
 
 import HOADON.*;
+import KHACHHANG.*;
 import SACH.*;
 import NHANVIEN.*;
-import KHACH_HANG.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -39,7 +39,7 @@ public class Main {
                 case 5:
                     flag=false;
                     break;
-                }
+            }
         }
     }
 }

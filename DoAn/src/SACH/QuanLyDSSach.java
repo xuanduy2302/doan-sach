@@ -34,8 +34,10 @@ public class QuanLyDSSach{
                     break;
                 case 7:
                     flag = false;
+                    DSSach.luu();
                     break;
                 case 8:
+                    DSSach.luu();
                     System.exit(0);
 
             }

@@ -16,7 +16,6 @@ public class HOADON implements IXuat{
         int TongTien=0;
         for (int i=0; i<ChiTietHoaDon.getSL(); i++) {
             TongTien+=ChiTietHoaDon.DonGiaMoiSP.get(i)*ChiTietHoaDon.SoLuongMoiSP.get(i);
-            i++;
         }
         return TongTien;
     }
@@ -29,10 +28,9 @@ public class HOADON implements IXuat{
         System.out.printf("%-20s%-20s%-20s%s\n","San pham","Don gia","So luong","So tien");
         System.out.println("-------------------------------------------------------------------------------------------------");
          
-        for (int i=0; i<ChiTietHoaDon.DanhSachSanPham.size(); i++) {
+        for (int i=0; i<ChiTietHoaDon.getSL(); i++) {
             System.out.printf("%d %s\n",i+1,ChiTietHoaDon.DanhSachSanPham.get(i));
             System.out.printf("  %-18s%-20d%-20d%d\n",ChiTietHoaDon.DanhSachMaSanPham.get(i),ChiTietHoaDon.DonGiaMoiSP.get(i),ChiTietHoaDon.SoLuongMoiSP.get(i),ChiTietHoaDon.DonGiaMoiSP.get(i)*ChiTietHoaDon.SoLuongMoiSP.get(i));
-            i++;
         }
         System.out.println("-------------------------------------------------------------------------------------------------");
         System.out.printf("%35s %d\n\n\n","Tong tien:",TongTien());

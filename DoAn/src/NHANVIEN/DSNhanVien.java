@@ -134,7 +134,7 @@ public class DSNhanVien extends MENU{
                 writer.newLine(); // Xuống dòng cho mỗi nhân viên
                 
             }
-            System.out.println("Ghi file thanh cong!");
+            //System.out.println("Ghi file thanh cong!");
      
         } catch (Exception e) {
             e.printStackTrace();
@@ -188,7 +188,7 @@ public class DSNhanVien extends MENU{
                     DanhSachNhanVien.add(nv);
                 }            
             }   
-            // System.out.println("Doc file thanh cong!");
+            //System.out.println("Doc file thanh cong!");
         
         } catch (Exception e) {
             e.printStackTrace();
