@@ -60,18 +60,7 @@ public class DSSach  extends MENU{
         if (!found)
             System.out.println("Khong tim thay sach de xoa");
         else{
-            File file = new File("danh_sach_sach.txt");
-            try {
-            FileOutputStream fileStream = new FileOutputStream(file, false);
-            PrintWriter writer = new PrintWriter(fileStream);
-            writer.print("");
-            writer.close();
-            } catch (IOException e) {
-                System.out.println("Xảy ra lỗi khi xóa nội dung của tệp tin: " + e.getMessage());
-            }           
-            for (SACH sach : DanhSachSach){
-                themsach(sach.toString());
-            }
+            luu();
 
         }
     }
@@ -129,19 +118,7 @@ public class DSSach  extends MENU{
         if (!found)
             System.out.println("Khong tim thay ma sach !");
         else{
-            File file = new File("danh_sach_sach.txt");
-            try {
-            FileOutputStream fileStream = new FileOutputStream(file, false);
-            PrintWriter writer = new PrintWriter(fileStream);
-            writer.print("");
-            writer.close();
-            } catch (IOException e) {
-                System.out.println("Xảy ra lỗi khi xóa nội dung của tệp tin: " + e.getMessage());
-            }           
-            for (SACH sach : DanhSachSach){
-                themsach(sach.toString());
-            }
-
+            luu();
         }
     }
 
@@ -160,6 +137,21 @@ public class DSSach  extends MENU{
             System.out.println("Khong tim thay sach !");
     }
 
+    public static void luu() {
+        File file = new File("danh_sach_sach.txt");
+
+        try {
+        FileOutputStream fileStream = new FileOutputStream(file, false);
+        PrintWriter writer = new PrintWriter(fileStream);
+        writer.print("");
+        writer.close();
+        } catch (IOException e) {
+            System.out.println("Xảy ra lỗi khi xóa nội dung của tệp tin: " + e.getMessage());
+        }           
+        for (SACH sach : DanhSachSach){
+            themsach(sach.toString());
+        }
+    }
     public static void doc(){
 
         try {
