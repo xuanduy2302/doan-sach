@@ -3,13 +3,18 @@ package SACH;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class DSSach{
+import abstr_interf.MENU;
+
+public class DSSach  extends MENU{
     public static ArrayList <SACH> DanhSachSach;
     Scanner sc = new Scanner(System.in); 
 
@@ -18,11 +23,27 @@ public class DSSach{
     }
 
     public void them(){
-        SACH sachmoi = new SACH();
-        sachmoi.nhap();
-        DanhSachSach.add(sachmoi);
-        themsach(sachmoi.toString());
-        SACH.updateKhoSach(sachmoi.SoLuong);
+        boolean inputValid = false;
+
+        while (!inputValid) {
+            try {
+                SACH sachmoi = new SACH();
+                sachmoi.nhap();
+                DanhSachSach.add(sachmoi);
+                themsach(sachmoi.toString());
+                SACH.updateKhoSach(sachmoi.SoLuong);
+                
+                // Nếu không có ngoại lệ xảy ra, đánh dấu là dữ liệu hợp lệ và thoát khỏi vòng lặp
+                inputValid = true;
+            } catch (InputMismatchException ex) {
+                System.out.println("Nhap Sai Du Lieu");
+                // Bỏ qua dữ liệu hiện tại và yêu cầu người dùng nhập lại
+            } catch (Exception e) {
+                System.out.println("Da Xay Ra Loi " + e.getMessage());
+                e.printStackTrace();
+                // Xử lý ngoại lệ khác nếu cần thiết
+            }
+        }
     }
     public void xoa(){
         String MaSachXoa;
@@ -38,6 +59,21 @@ public class DSSach{
             }
         if (!found)
             System.out.println("Khong tim thay sach de xoa");
+        else{
+            File file = new File("danh_sach_sach.txt");
+            try {
+            FileOutputStream fileStream = new FileOutputStream(file, false);
+            PrintWriter writer = new PrintWriter(fileStream);
+            writer.print("");
+            writer.close();
+            } catch (IOException e) {
+                System.out.println("Xảy ra lỗi khi xóa nội dung của tệp tin: " + e.getMessage());
+            }           
+            for (SACH sach : DanhSachSach){
+                themsach(sach.toString());
+            }
+
+        }
     }
     public void sua(){
         String MaSachSua;
@@ -92,17 +128,23 @@ public class DSSach{
         }
         if (!found)
             System.out.println("Khong tim thay ma sach !");
-    }
-    public void xuat(){
-        int i=1;
-        System.out.println("Danh sach co "+DanhSachSach.size()+" sach:");
-        for (SACH sach : DanhSachSach) {
-            System.out.print(i+"/ ");
-            sach.xuat();
-            System.out.println();
-            i++;
+        else{
+            File file = new File("danh_sach_sach.txt");
+            try {
+            FileOutputStream fileStream = new FileOutputStream(file, false);
+            PrintWriter writer = new PrintWriter(fileStream);
+            writer.print("");
+            writer.close();
+            } catch (IOException e) {
+                System.out.println("Xảy ra lỗi khi xóa nội dung của tệp tin: " + e.getMessage());
+            }           
+            for (SACH sach : DanhSachSach){
+                themsach(sach.toString());
+            }
+
         }
     }
+
     public void timkiem(){
         String MaSachTimKiem;
         boolean found=false;
@@ -155,6 +197,16 @@ public class DSSach{
 
         } catch (IOException e) {
 
+        }
+    }
+    public void danhsach() {
+      int i=1;
+        System.out.println("Danh sach co "+DanhSachSach.size()+" sach:");
+        for (SACH sach : DanhSachSach) {
+            System.out.print(i+"/ ");
+            sach.xuat();
+            System.out.println();
+            i++;
         }
     }
 }
